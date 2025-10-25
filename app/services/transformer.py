@@ -1,7 +1,8 @@
 import logging
 
 def transform_data(input_data: dict):
-    logging.info(f"incoming data: {input_data}")
+    # logging.info(f"incoming data: {input_data}")
+    print(f"incoming data: {input_data}")
     # payload = input_data.get(payload, {})
     # transformed = {
     #     "target": "downstream-system",
