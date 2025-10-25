@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from app.models.schemas import InputData, TransformedData
-from app.services.transformer import transform_data
+from ..models.schemas import InputData, TransformedData
+from ..services.transformer import transform_data
 import requests
 import os
 import logging
@@ -12,8 +12,5 @@ DOWNSTREAM_URL = os.getenv("DOWNSTREAM_URL", "https://httpbin.org/post")
 
 @router.post("/", response_model=Any)
 def transform_and_send(data: InputData):
-    # logging.info(f"incoming data: {data.model_dump()}")
-    print(f"incoming data: {data.model_dump()}")
-    # transformed = transform_data(data.model_dump())
-    transformed = {}
+    transformed = transform_data(data.model_dump())
     return transformed

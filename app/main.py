@@ -2,7 +2,7 @@ import logging
 
 from fastapi import FastAPI
 
-from app.api.routes import router
+from .api.routes import router
 
 app = FastAPI(
     title="Data Transformer API",
@@ -11,7 +11,7 @@ app = FastAPI(
 )
 
 logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger("uvicorn")
+logger = logging.getLogger(name="uvicorn")
 
 app.include_router(router)
 
